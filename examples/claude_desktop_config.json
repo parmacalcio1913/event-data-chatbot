@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "event-data-chatbot": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/absolute/path/to/event-data-chatbot",
+        "mcp_server.py"
+      ]
+    }
+  }
+}

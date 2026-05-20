@@ -1,0 +1,55 @@
+[project]
+name = "event-data-chatbot"
+version = "0.1.0"
+description = "A CLI chatbot for exploring football event data, powered by Claude and MCP"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "anthropic>=0.51.0",
+    "duckdb>=1.1.0",
+    "mcp[cli]>=1.8.0",
+    "prompt-toolkit>=3.0.51",
+    "python-dotenv>=1.1.0",
+    "statsbombpy>=1.18.0",
+    "tqdm>=4.66.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.0",
+    "mypy>=1.10.0",
+    "pre-commit>=3.7.0",
+    "pytest>=8.0.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+# E501 is line-length. `ruff format` already enforces 88 chars on code; string
+# literals (column comments, prompt templates) are intentionally long and
+# wrapping them only hurts readability.
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]
