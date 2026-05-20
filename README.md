@@ -78,7 +78,18 @@ Under the hood:
 
 The same loop handles multi-step questions naturally: Claude may issue a small exploratory query first ("what competition names exist in the database?"), look at the answer, then issue a follow-up aggregation query — all within one user turn.
 
+### Debug flags
 
+By default the CLI prints only Claude's responses. Two opt-in flags expose what's happening under the hood:
+
+- `--usage` — print Anthropic token usage per turn (`[tokens] in=… out=…`) and a running total per user message.
+- `--query` — print each tool call with its input, e.g. `[tool] query({"sql": "..."})`. Handy for seeing the SQL Claude wrote.
+
+Combine them freely:
+
+```bash
+uv run main.py --usage --query
+```
 
 ### Commands
 

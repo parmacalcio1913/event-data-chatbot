@@ -51,7 +51,7 @@ QUERY_DESCRIPTION = (
     "events table schema:\n"
     f"{sb.events_schema()}\n"
     "\n"
-    "When using team names in WHERE conditions, don't use the Equal To operator but use the LIKE operator."
+    "When using team names and/or player names in WHERE conditions, don't use the Equal To operator but use the LIKE operator."
     "There is no teams table — derive teams from matches.home_team_name / "
     "matches.away_team_name. Only SELECT statements are allowed. Results are "
     "capped; the response includes a 'truncated' flag when the cap is hit."
