@@ -53,7 +53,10 @@ class ToolManager:
 
     @classmethod
     async def execute_tool_requests(
-        cls, clients: dict[str, MCPClient], message: Message
+        cls,
+        clients: dict[str, MCPClient],
+        message: Message,
+        show_query: bool = False,
     ) -> list[ToolResultBlockParam]:
         """Executes a list of tool requests against the provided clients."""
         tool_requests = [block for block in message.content if block.type == "tool_use"]
@@ -63,7 +66,8 @@ class ToolManager:
             tool_name = tool_request.name
             tool_input = tool_request.input
 
-            print(f"[tool] {tool_name}({json.dumps(tool_input)})")
+            if show_query:
+                print(f"[tool] {tool_name}({json.dumps(tool_input)})")
 
             client = await cls._find_client_with_tool(list(clients.values()), tool_name)
 

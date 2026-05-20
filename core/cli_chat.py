@@ -14,8 +14,15 @@ class CliChat(Chat):
         client: MCPClient,
         clients: dict[str, MCPClient],
         claude_service: Claude,
+        show_usage: bool = False,
+        show_query: bool = False,
     ):
-        super().__init__(clients=clients, claude_service=claude_service)
+        super().__init__(
+            clients=clients,
+            claude_service=claude_service,
+            show_usage=show_usage,
+            show_query=show_query,
+        )
 
         self.client: MCPClient = client
 

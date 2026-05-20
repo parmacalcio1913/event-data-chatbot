@@ -63,8 +63,9 @@ class UnifiedCompleter(Completer):
 
 
 class CliApp:
-    def __init__(self, agent: CliChat):
+    def __init__(self, agent: CliChat, show_usage: bool = False):
         self.agent = agent
+        self.show_usage = show_usage
         self.prompts: list[Prompt] = []
 
         self.completer = UnifiedCompleter()
@@ -120,10 +121,11 @@ class CliApp:
 
                 response = await self.agent.run(user_input)
                 print(f"\nResponse:\n{response}")
-                usage = self.agent.last_usage
-                print(
-                    f"\n[tokens total: {usage['input_tokens']} in / {usage['output_tokens']} out]"
-                )
+                if self.show_usage:
+                    usage = self.agent.last_usage
+                    print(
+                        f"\n[tokens total: {usage['input_tokens']} in / {usage['output_tokens']} out]"
+                    )
 
             except KeyboardInterrupt:
                 break
