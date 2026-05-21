@@ -10,7 +10,7 @@ The initial scaffolding for the MCP client, agentic loop, and CLI in this projec
 
 ## Prerequisites
 
-- Python 3.9+
+- Python 3.10+
 - Anthropic API Key
 
 ## Setup
@@ -20,6 +20,7 @@ The initial scaffolding for the MCP client, agentic loop, and CLI in this projec
 1. Create or edit the `.env` file in the project root and verify that the following variables are set correctly:
 
 ```
+CLAUDE_MODEL="" # Enter the Claude model you want to use.
 ANTHROPIC_API_KEY=""  # Enter your Anthropic API secret key
 ```
 
@@ -53,11 +54,22 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 uv pip install -e .
 ```
 
-5. Run the project
+5. Download the StatsBomb snapshot into `data/statsbomb.duckdb` (~0.5 GB, one-shot):
 
 ```bash
-uv run main.py
+uv run scripts/download_data.py
 ```
+
+6. Run the project
+
+```bash
+uv run main.py [--query] [--usage]
+```
+
+By default the CLI prints only Claude's responses. Two opt-in flags expose what's happening under the hood:
+
+- `--usage` — print Anthropic token usage per turn (`[tokens] in=… out=…`) and a running total per user message.
+- `--query` — print each tool call with its input, e.g. `[tool] query({"sql": "..."})`. Handy for seeing the SQL Claude wrote.
 
 ## Usage
 
@@ -79,19 +91,6 @@ Under the hood:
 6. `Chat.run()` appends the tool result as a user message and loops back to call Claude again (step 3) — this time with the result in the conversation history. Claude either produces a final answer (`stop_reason == "end_turn"`) or asks to call the tool again with a refined query.
 
 The same loop handles multi-step questions naturally: Claude may issue a small exploratory query first ("what competition names exist in the database?"), look at the answer, then issue a follow-up aggregation query — all within one user turn.
-
-### Debug flags
-
-By default the CLI prints only Claude's responses. Two opt-in flags expose what's happening under the hood:
-
-- `--usage` — print Anthropic token usage per turn (`[tokens] in=… out=…`) and a running total per user message.
-- `--query` — print each tool call with its input, e.g. `[tool] query({"sql": "..."})`. Handy for seeing the SQL Claude wrote.
-
-Combine them freely:
-
-```bash
-uv run main.py --usage --query
-```
 
 ### Commands
 
