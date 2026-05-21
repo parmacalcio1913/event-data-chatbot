@@ -326,6 +326,47 @@ wheels = [
 ]
 
 [[package]]
+name = "event-data-chatbot"
+version = "0.2.1"
+source = { virtual = "." }
+dependencies = [
+    { name = "anthropic" },
+    { name = "duckdb" },
+    { name = "mcp", extra = ["cli"] },
+    { name = "prompt-toolkit" },
+    { name = "python-dotenv" },
+    { name = "statsbombpy" },
+    { name = "tqdm" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "mypy" },
+    { name = "pre-commit" },
+    { name = "pytest" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "anthropic", specifier = ">=0.51.0" },
+    { name = "duckdb", specifier = ">=1.1.0" },
+    { name = "mcp", extras = ["cli"], specifier = ">=1.8.0" },
+    { name = "prompt-toolkit", specifier = ">=3.0.51" },
+    { name = "python-dotenv", specifier = ">=1.1.0" },
+    { name = "statsbombpy", specifier = ">=1.18.0" },
+    { name = "tqdm", specifier = ">=4.66.0" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "mypy", specifier = ">=1.10.0" },
+    { name = "pre-commit", specifier = ">=3.7.0" },
+    { name = "pytest", specifier = ">=8.0.0" },
+    { name = "ruff", specifier = ">=0.15.0" },
+]
+
+[[package]]
 name = "exceptiongroup"
 version = "1.2.2"
 source = { registry = "https://pypi.org/simple" }
@@ -618,47 +659,6 @@ wheels = [
 cli = [
     { name = "python-dotenv" },
     { name = "typer" },
-]
-
-[[package]]
-name = "mcp-football-events"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "anthropic" },
-    { name = "duckdb" },
-    { name = "mcp", extra = ["cli"] },
-    { name = "prompt-toolkit" },
-    { name = "python-dotenv" },
-    { name = "statsbombpy" },
-    { name = "tqdm" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "mypy" },
-    { name = "pre-commit" },
-    { name = "pytest" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "anthropic", specifier = ">=0.51.0" },
-    { name = "duckdb", specifier = ">=1.1.0" },
-    { name = "mcp", extras = ["cli"], specifier = ">=1.8.0" },
-    { name = "prompt-toolkit", specifier = ">=3.0.51" },
-    { name = "python-dotenv", specifier = ">=1.1.0" },
-    { name = "statsbombpy", specifier = ">=1.18.0" },
-    { name = "tqdm", specifier = ">=4.66.0" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "mypy", specifier = ">=1.10.0" },
-    { name = "pre-commit", specifier = ">=3.7.0" },
-    { name = "pytest", specifier = ">=8.0.0" },
-    { name = "ruff", specifier = ">=0.15.0" },
 ]
 
 [[package]]

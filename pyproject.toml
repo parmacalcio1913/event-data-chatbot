@@ -1,6 +1,6 @@
 [project]
 name = "event-data-chatbot"
-version = "0.1.0"
+version = "0.2.1"
 description = "A CLI chatbot for exploring football event data, powered by Claude and MCP"
 readme = "README.md"
 requires-python = ">=3.10"
