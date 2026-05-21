@@ -6,6 +6,8 @@ A CLI chatbot that lets you ask Claude analytical questions about football event
 
 This project queries [StatsBomb open data](https://github.com/statsbomb/open-data). If you publish analysis based on this data you must credit **StatsBomb** and display their logo — see [ATTRIBUTION.md](ATTRIBUTION.md) for full requirements. Before using the data, register at the [StatsBomb resource centre](https://statsbomb.com/resource-centre/).
 
+The initial scaffolding for the MCP client, agentic loop, and CLI in this project was adapted from the "Model Context Protocol" section of Stephen Grider's [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287780) course at Anthropic.
+
 ## Prerequisites
 
 - Python 3.9+
