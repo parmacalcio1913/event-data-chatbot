@@ -6,21 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Fixed
-- setuptools license classifier error
-
-## [0.2.1]
-### Added
-- Attributing Anthropic's course material
-
-### Fixed
-- Bug in versioning
-
-## [0.2.0]
-### Added
-- Parameters (`--query`, `--usage`) when running `uv run main.py`
-
-## [0.1.0]
+## [1.0.0] - 2026-06-21
 
 ### Added
 - MCP server (`mcp_server.py`) exposing a single read-only `query` SQL tool over a local StatsBomb DuckDB snapshot, with the events table schema baked into the tool description.
