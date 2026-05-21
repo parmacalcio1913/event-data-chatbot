@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Attributing Anthropic's course material
+
+### Fixed
+- Bug in versioning
+
 ## [0.2.0]
 ### Added
 - Parameters (`--query`, `--usage`) when running `uv run main.py`
